@@ -1,11 +1,12 @@
 a = int(input())
 temp = []
 
-for i in range(a):
+for _ in range(a):
     num = int(input())
     if num:
         temp.append(num)
-    elif not num:
+    else:
         temp.pop()
 
 print(sum(temp))
+
