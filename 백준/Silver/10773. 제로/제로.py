@@ -1,7 +1,6 @@
-a = int(input())
 temp = []
 
-for _ in range(a):
+for _ in range(int(input())):
     num = int(input())
     if num:
         temp.append(num)
@@ -9,4 +8,3 @@ for _ in range(a):
         temp.pop()
 
 print(sum(temp))
-
