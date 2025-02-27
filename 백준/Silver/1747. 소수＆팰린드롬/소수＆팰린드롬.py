@@ -14,9 +14,8 @@ def cal(x):
 x = int(input())
 
 while True:
-    if strings(x) & cal(x):
-        break
-    else:
-        x += 1
-    
-print(x)
+    if strings(x): 
+        if cal(x): # 최소 파츠 모듈로 만들어 놓기
+            print(x)
+            break
+    x += 1
