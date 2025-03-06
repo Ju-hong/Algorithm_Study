@@ -3,13 +3,10 @@ from collections import deque
 n, m = map(int, input().split()) # 7 3
 
 temp = deque([i for i in range(1, n+1)]) # 1~7
-# 1 2 3 4 5 6 7
-# 0 1 2 3 4 5 6
 final = []
 
 while temp:
     temp.rotate(-m+1)
     final.append(temp.popleft())
-
 
 print(f"<{", ".join(map(str, final))}>")   
