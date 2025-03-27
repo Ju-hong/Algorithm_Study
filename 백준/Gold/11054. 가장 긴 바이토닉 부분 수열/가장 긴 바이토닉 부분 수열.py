@@ -1,35 +1,24 @@
 import sys
-def dp_increasing(arr):
-    n = len(arr)
-    dp = [1 for _ in range(n)]
+from bisect import bisect_left
 
-    for i in range(1, n):
-        for j in range(0, i):
-            if arr[i] > arr[j]:
-                dp[i] = max(dp[i], dp[j]+1)
+def binary_search(arr):
+    sub = []
+    dp = [0] * len(arr)
+
+    for i, num in enumerate(arr):
+        pos = bisect_left(sub, num) 
+        if pos == len(sub):
+            sub.append(num)
+        else:
+            sub[pos] = num
+        dp[i] = pos + 1
     return dp
 
-def dp_decreasing(arr):
-    n = len(arr)
-    dp = [1 for _ in range(n)]
-    arr = arr[::-1]
+N = int(sys.stdin.readline())
+A = list(map(int, sys.stdin.readline().split()))
 
-    for i in range(1, n):
-        for j in range(0, i):
-            if arr[i] > arr[j]:
-                dp[i] = max(dp[i], dp[j]+1)
-    return dp
+dp1 = binary_search(A)
+dp2 = binary_search(A[::-1])[::-1]
 
-n = int(sys.stdin.readline().rstrip())
-arr = list(map(int, sys.stdin.readline().rstrip().split()))
-
-temp =[]
-
-for j in range(n):
-    increasing_len_arr = dp_increasing(arr[:j+1]) #아악 +!
-    decreasing_len_arr = dp_decreasing(arr[j:])
-    a = max(increasing_len_arr) + max(decreasing_len_arr) -1
-    temp.append(a)
-    
-
-print(max(temp))
+max_length = max(dp1[i] + dp2[i] - 1 for i in range(N))
+print(max_length)
