@@ -1,7 +1,4 @@
-import math
+n, d, k = map(int, input().split())
+s=list(map(int,input().split()))
 
-_, d, k = map(int, input().split())
-
-maxi = max(map(int, input().split()))
-
-print(math.ceil((d-k//maxi)/(k//maxi)))
+print((d-1)//(k//max(s)))
