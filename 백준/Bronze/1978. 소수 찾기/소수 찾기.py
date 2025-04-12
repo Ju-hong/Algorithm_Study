@@ -1,8 +1,7 @@
 import sys
 
-_ = sys.stdin.readline()
+count = int(sys.stdin.readline())
 arr = list(map(int, sys.stdin.readline().split()))
-count = 0
 
 def finding(num):
   if num != 1:
@@ -12,7 +11,7 @@ def finding(num):
     return True
       
 for num in arr:
-  if finding(num):
-    count += 1
+  if not finding(num):
+    count -= 1
 
 print(count)
