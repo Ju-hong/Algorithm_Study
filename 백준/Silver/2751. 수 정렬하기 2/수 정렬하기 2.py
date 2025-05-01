@@ -1,8 +1,5 @@
 import sys
 
-n = sys.stdin.readline()
+arr = sorted(list(map(int, sys.stdin.readlines()[1:])))
 
-arr = sorted(list(map(int, sys.stdin.readlines())))
-
-for i in arr:
-    print(i)
+print('\n'.join(map(str, arr)))
