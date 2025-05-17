@@ -3,4 +3,8 @@ sec = int(input())
 
 sum_time = h*60*60 + m*60 + s + sec
 
-print(f'{sum_time//3600 if sum_time//3600 < 24 else sum_time//3600%24 } {sum_time%3600//60 if sum_time%3600//60 < 60 else 0} {sum_time%3600%60 if sum_time%3600%60 < 60 else 0}')
+h_result = sum_time//3600
+m_result = sum_time%3600//60
+s_result = sum_time%3600%60
+
+print(f'{h_result if h_result < 24 else h_result%24 } {m_result} {s_result}')
